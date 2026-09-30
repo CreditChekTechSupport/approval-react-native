@@ -115,13 +115,13 @@ export default function App() {
             <TouchableOpacity
               style={[
                 styles.toggleButton,
-                (environment === 'DEVELOPMENT' || environment === 'SANDBOX') && styles.toggleButtonActive,
+                environment === 'DEVELOPMENT' && styles.toggleButtonActive,
               ]}
               onPress={() => setEnvironment('DEVELOPMENT')}>
               <Text
                 style={[
                   styles.toggleText,
-                  (environment === 'DEVELOPMENT' || environment === 'SANDBOX') && styles.toggleTextActive,
+                  environment === 'DEVELOPMENT' && styles.toggleTextActive,
                 ]}>
                 DEVELOPMENT
               </Text>

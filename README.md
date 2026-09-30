@@ -186,3 +186,8 @@ type SessionResult =
   | { status: 'cancelled' }
   | { status: 'error'; code: string; message: string };
 ```
+
+
+## Support
+
+For help with this library, open an issue on the [GitHub repo](https://github.com/CreditChekTechSupport/approval-web/issues) or email [support@creditchek.africa](mailto:support@creditchek.africa).
