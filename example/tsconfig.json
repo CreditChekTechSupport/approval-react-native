@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "approval_react_native": ["../src/index"],
+      "approval_react_native/*": ["../src/*"]
+    }
+  }
+}

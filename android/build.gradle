@@ -1,0 +1,34 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.approval_react_native'
+version = '0.1.0'
+
+android {
+  namespace "expo.modules.approval_react_native"
+  defaultConfig {
+    versionCode 1
+    versionName "0.1.0"
+    minSdkVersion 24
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+  google()
+  mavenCentral()
+  mavenLocal()
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  implementation 'com.github.creditcliq:approval_android:1.0.1'
+}

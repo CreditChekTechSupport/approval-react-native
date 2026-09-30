@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "approval_react_native-example",
+    "slug": "approval_react_native-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "../app.plugin.js",
+        {
+          "cameraPermission": "Allow CreditChek to verify your face and identity"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.creditchek.approval.example",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow CreditChek to verify your face and identity"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.creditchek.approval.example",
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

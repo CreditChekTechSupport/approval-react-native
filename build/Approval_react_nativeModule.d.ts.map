@@ -1,0 +1,1 @@
+{"version":3,"file":"Approval_react_nativeModule.d.ts","sourceRoot":"","sources":["../src/Approval_react_nativeModule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAuB,MAAM,MAAM,CAAC;AACzD,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAE9D,OAAO,OAAO,2BAA4B,SAAQ,YAAY,CAAC,EAAE,CAAC;IAChE,iBAAiB,CAAC,MAAM,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,GAAG,OAAO,CAAC,aAAa,CAAC;CACvE;;AAED,wBAAyF"}

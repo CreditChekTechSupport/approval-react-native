@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["Approval_react_nativeModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.approval_react_native.Approval_react_nativeModule"]
+  }
+}
