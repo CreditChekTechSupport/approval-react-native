@@ -10,13 +10,13 @@ Compatible with both **Expo (Development Builds / Prebuild)** and **Bare React N
 
 ```bash
 # Using Expo (Recommended)
-npx expo install approval_react_native
+npx expo install approval-react-native
 
 # Using npm
-npm install approval_react_native
+npm install approval-react-native
 
 # Using yarn
-yarn add approval_react_native
+yarn add approval-react-native
 ```
 
 ---
@@ -32,7 +32,7 @@ Add the module's Config Plugin to your `app.json` (or `app.config.js`). This aut
   "expo": {
     "plugins": [
       [
-        "approval_react_native",
+        "approval-react-native",
         {
           "cameraPermission": "Allow CreditChek Approval to access camera for face verification."
         }
@@ -96,7 +96,7 @@ Add the module's Config Plugin to your `app.json` (or `app.config.js`). This aut
 ```tsx
 import React from 'react';
 import { View, Button, Alert } from 'react-native';
-import CreditChekApproval, { SessionResult } from 'approval_react_native';
+import CreditChekApproval, { SessionResult } from 'approval-react-native';
 
 export default function VerificationScreen() {
   const launchVerification = async () => {

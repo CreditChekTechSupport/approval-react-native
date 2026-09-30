@@ -1,9 +1,9 @@
 {
-  "name": "approval_react_native-example",
+  "name": "approval-react-native-example",
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
-    "approval_react_native": "file:..",
+    "approval-react-native": "file:..",
     "expo": "~57.0.25",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",

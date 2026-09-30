@@ -14,7 +14,7 @@ import CreditChekApproval, {
   ApprovalEnvironment,
   ApprovalModule,
   SessionResult,
-} from 'approval_react_native';
+} from 'approval-react-native';
 
 export default function App() {
   const [publicKey, setPublicKey] = useState('');

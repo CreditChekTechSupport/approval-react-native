@@ -1,1 +1,1 @@
-{"version":3,"file":"Approval_react_nativeModule.web.d.ts","sourceRoot":"","sources":["../src/Approval_react_nativeModule.web.ts"],"names":[],"mappings":"AAAA,OAAO,EAAqB,YAAY,EAAE,MAAM,MAAM,CAAC;AACvD,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAE9D,cAAM,2BAA4B,SAAQ,YAAY,CAAC,EAAE,CAAC;IAClD,iBAAiB,CAAC,OAAO,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,GAAG,OAAO,CAAC,aAAa,CAAC;CAG9E;;AAED,wBAAuF"}
+{"version":3,"file":"Approval_react_nativeModule.web.d.ts","sourceRoot":"","sources":["../src/Approval_react_nativeModule.web.ts"],"names":[],"mappings":";AASA,wBAAuF"}

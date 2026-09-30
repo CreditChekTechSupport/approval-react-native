@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "approval_react_native-example",
-    "slug": "approval_react_native-example",
+    "name": "approval-react-native-example",
+    "slug": "approval-react-native-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

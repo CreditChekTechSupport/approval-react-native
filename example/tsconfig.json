@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "approval_react_native": ["../src/index"],
-      "approval_react_native/*": ["../src/*"]
+      "approval-react-native": ["../src/index"],
+      "approval-react-native/*": ["../src/*"]
     }
   }
 }

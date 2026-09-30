@@ -1,6 +1,6 @@
 {
-  "name": "approval_react_native",
-  "version": "1.0.1",
+  "name": "approval-react-native",
+  "version": "1.0.2",
   "description": "My new module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -16,8 +16,8 @@
   "keywords": [
     "react-native",
     "expo",
-    "approval_react_native",
-    "Approval_react_native"
+    "approval-react-native",
+    "Approval-react-native"
   ],
   "repository": "https://github.com/CreditChekTechSupport/approval-react-native.git",
   "bugs": {
