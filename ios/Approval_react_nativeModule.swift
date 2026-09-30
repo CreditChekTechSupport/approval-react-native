@@ -27,11 +27,12 @@ public class Approval_react_nativeModule: Module {
         let firstName = (userDict["firstName"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let lastName = (userDict["lastName"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let bvn = (userDict["bvn"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let nin = (userDict["nin"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let email = (userDict["email"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let dob = ((userDict["dob"] as? String) ?? (userDict["dateOfBirth"] as? String))?.trimmingCharacters(in: .whitespacesAndNewlines)
         let phone = (userDict["phone"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let hasData = !firstName.isEmpty || !lastName.isEmpty || !bvn.isEmpty ||
+        let hasData = !firstName.isEmpty || !lastName.isEmpty || !bvn.isEmpty || !nin.isEmpty ||
           !email.isEmpty || !(dob?.isEmpty ?? true) || !(phone?.isEmpty ?? true)
 
         if hasData {
@@ -39,6 +40,7 @@ public class Approval_react_nativeModule: Module {
             firstName: firstName,
             lastName: lastName,
             bvn: bvn,
+            nin: nin,
             email: email,
             dateOfBirth: dob,
             phone: phone

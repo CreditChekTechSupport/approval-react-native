@@ -45,18 +45,20 @@ class Approval_react_nativeModule : Module() {
         val firstName = (userMap["firstName"] as? String)?.trim() ?: ""
         val lastName = (userMap["lastName"] as? String)?.trim() ?: ""
         val bvn = (userMap["bvn"] as? String)?.trim() ?: ""
+        val nin = (userMap["nin"] as? String)?.trim() ?: ""
         val email = (userMap["email"] as? String)?.trim() ?: ""
         val dob = ((userMap["dob"] as? String) ?: (userMap["dateOfBirth"] as? String))?.trim()
         val phone = (userMap["phone"] as? String)?.trim()
 
         val hasMeaningfulData = firstName.isNotEmpty() || lastName.isNotEmpty() ||
-          bvn.isNotEmpty() || email.isNotEmpty() || !dob.isNullOrEmpty() || !phone.isNullOrEmpty()
+          bvn.isNotEmpty() || nin.isNotEmpty() || email.isNotEmpty() || !dob.isNullOrEmpty() || !phone.isNullOrEmpty()
 
         if (hasMeaningfulData) {
           AUserData(
             firstName = firstName,
             lastName = lastName,
             bvn = bvn,
+            nin = nin,
             email = email,
             dob = dob,
             phone = phone
