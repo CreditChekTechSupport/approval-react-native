@@ -25,10 +25,9 @@ android {
 repositories {
   google()
   mavenCentral()
-  mavenLocal()
   maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-  implementation 'com.github.creditcliq:approval_android:1.0.3'
+  implementation 'com.github.creditcliq:approval_android:1.0.5'
 }

@@ -14,15 +14,16 @@ import CreditChekApproval, {
   ApprovalEnvironment,
   ApprovalModule,
   SessionResult,
-} from 'approval-react-native';
+} from 'approval_react_native';
 
 export default function App() {
   const [publicKey, setPublicKey] = useState('');
   const [sessionId, setSessionId] = useState('');
-  const [environment, setEnvironment] = useState<ApprovalEnvironment>('DEVELOPMENT');
+  const [widgetId, setWidgetId] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [bvn, setBvn] = useState('');
+  const [nin, setNin] = useState('');
   const [email, setEmail] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
@@ -40,6 +41,13 @@ export default function App() {
       );
       return;
     }
+    if (!widgetId.trim()) {
+      Alert.alert(
+        'Missing Field',
+        'Please enter your widget ID from the CreditChek dashboard.'
+      );
+      return;
+    }
 
     setIsLoading(true);
     setResult(null);
@@ -48,19 +56,22 @@ export default function App() {
       const trimmedFirstName = firstName.trim();
       const trimmedLastName = lastName.trim();
       const trimmedBvn = bvn.trim();
+      const trimmedNin = nin.trim();
       const trimmedEmail = email.trim();
-      const hasUserData = Boolean(trimmedFirstName || trimmedLastName || trimmedBvn || trimmedEmail);
+      const hasUserData = Boolean(
+        trimmedFirstName || trimmedLastName || trimmedBvn || trimmedNin || trimmedEmail
+      );
 
       const sessionResult = await CreditChekApproval.start({
         publicKey: publicKey.trim(),
         sessionId: sessionId.trim(),
-        environment,
-        modules: ['IDENTITY', 'LIVELINESS'] as ApprovalModule[],
+        widgetId: widgetId.trim(),
         userData: hasUserData
           ? {
             firstName: trimmedFirstName || undefined,
             lastName: trimmedLastName || undefined,
             bvn: trimmedBvn || undefined,
+            nin: trimmedNin || undefined,
             email: trimmedEmail || undefined,
           }
           : undefined,
@@ -89,6 +100,9 @@ export default function App() {
         {/* Configuration Card */}
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Session Configuration</Text>
+          <Text style={{ fontSize: 13, color: '#6b7280', marginBottom: 12 }}>
+            Environment, branding, and verification flow are resolved dynamically from your widget configuration.
+          </Text>
 
           <Text style={styles.label}>Public Key *</Text>
           <TextInput
@@ -110,38 +124,15 @@ export default function App() {
             autoCorrect={false}
           />
 
-          <Text style={styles.label}>Environment</Text>
-          <View style={styles.toggleRow}>
-            <TouchableOpacity
-              style={[
-                styles.toggleButton,
-                environment === 'DEVELOPMENT' && styles.toggleButtonActive,
-              ]}
-              onPress={() => setEnvironment('DEVELOPMENT')}>
-              <Text
-                style={[
-                  styles.toggleText,
-                  environment === 'DEVELOPMENT' && styles.toggleTextActive,
-                ]}>
-                DEVELOPMENT
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[
-                styles.toggleButton,
-                environment === 'PRODUCTION' && styles.toggleButtonActive,
-              ]}
-              onPress={() => setEnvironment('PRODUCTION')}>
-              <Text
-                style={[
-                  styles.toggleText,
-                  environment === 'PRODUCTION' && styles.toggleTextActive,
-                ]}>
-                PRODUCTION
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <Text style={styles.label}>Widget ID *</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="e.g. 660f..."
+            value={widgetId}
+            onChangeText={setWidgetId}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
         </View>
 
         {/* Optional Prefill Card */}
@@ -176,6 +167,16 @@ export default function App() {
             placeholder="22222222222"
             value={bvn}
             onChangeText={setBvn}
+            keyboardType="number-pad"
+            maxLength={11}
+          />
+
+          <Text style={styles.label}>NIN</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="12345678901"
+            value={nin}
+            onChangeText={setNin}
             keyboardType="number-pad"
             maxLength={11}
           />

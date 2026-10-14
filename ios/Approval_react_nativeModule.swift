@@ -19,8 +19,11 @@ public class Approval_react_nativeModule: Module {
         return
       }
 
-      let envString = (configDict["environment"] as? String ?? "DEVELOPMENT").uppercased()
-      let environment: ApprovalEnv = (envString == "PRODUCTION") ? .production : .development
+      guard let widgetId = configDict["widgetId"] as? String,
+            !widgetId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+        promise.reject("INVALID_CONFIG", "widgetId is required and cannot be blank")
+        return
+      }
 
       var userData: AUserData? = nil
       if let userDict = configDict["userData"] as? [String: Any] {
@@ -48,18 +51,11 @@ public class Approval_react_nativeModule: Module {
         }
       }
 
-      let rawModules = configDict["modules"] as? [String] ?? ["IDENTITY"]
-      let modules: [ApprovalModule] = rawModules.compactMap { key in
-        ApprovalModule(rawValue: key.lowercased())
-      }
-      let finalModules = modules.isEmpty ? [.identity] : modules
-
       let config = ApprovalConfig(
         publicKey: publicKey.trimmingCharacters(in: .whitespacesAndNewlines),
-        modules: finalModules,
-        userData: userData,
         sessionId: sessionId.trimmingCharacters(in: .whitespacesAndNewlines),
-        environment: environment
+        widgetId: widgetId.trimmingCharacters(in: .whitespacesAndNewlines),
+        userData: userData
       )
 
       DispatchQueue.main.async {

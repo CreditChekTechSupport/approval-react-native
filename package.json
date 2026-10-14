@@ -1,7 +1,7 @@
 {
-  "name": "approval-react-native",
-  "version": "1.0.2",
-  "description": "My new module",
+  "name": "approval_react_native",
+  "version": "1.0.3",
+  "description": "Approval SDK for React Native and Expo: identity, liveness, credit, income and recova in a few lines of code",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -16,10 +16,13 @@
   "keywords": [
     "react-native",
     "expo",
-    "approval-react-native",
-    "Approval-react-native"
+    "approval_react_native",
+    "Approval_react_native"
   ],
-  "repository": "https://github.com/CreditChekTechSupport/approval-react-native.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CreditChekTechSupport/approval-react-native.git"
+  },
   "bugs": {
     "url": "https://github.com/CreditChekTechSupport/approval-react-native.git/issues"
   },

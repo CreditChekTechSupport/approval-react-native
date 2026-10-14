@@ -2,8 +2,6 @@ package expo.modules.approval_react_native
 
 import com.creditchek.approval_android.CreditChekApproval
 import com.creditchek.approval_android.core.session.ApprovalConfig
-import com.creditchek.approval_android.core.session.ApprovalEnv
-import com.creditchek.approval_android.core.session.ApprovalModule
 import com.creditchek.approval_android.core.session.AUserData
 import com.creditchek.approval_android.core.session.SessionResult
 import expo.modules.kotlin.Promise
@@ -33,11 +31,10 @@ class Approval_react_nativeModule : Module() {
         return@AsyncFunction
       }
 
-      val envString = (configMap["environment"] as? String) ?: "DEVELOPMENT"
-      val environment = if (envString.equals("PRODUCTION", ignoreCase = true)) {
-        ApprovalEnv.PRODUCTION
-      } else {
-        ApprovalEnv.DEVELOPMENT
+      val widgetId = configMap["widgetId"] as? String ?: ""
+      if (widgetId.isBlank()) {
+        promise.reject("INVALID_CONFIG", "widgetId is required and cannot be blank", null)
+        return@AsyncFunction
       }
 
       val userMap = configMap["userData"] as? Map<String, Any?>
@@ -66,21 +63,11 @@ class Approval_react_nativeModule : Module() {
         } else null
       } else null
 
-      val rawModules = configMap["modules"] as? List<String> ?: listOf("IDENTITY")
-      val modules = rawModules.mapNotNull { name ->
-        try {
-          ApprovalModule.valueOf(name.uppercase())
-        } catch (e: Exception) {
-          null
-        }
-      }.ifEmpty { listOf(ApprovalModule.IDENTITY) }
-
       val config = ApprovalConfig(
         publicKey = publicKey,
-        modules = modules,
         userData = userData,
         sessionId = sessionId,
-        environment = environment
+        widgetId = widgetId
       )
 
       CreditChekApproval.start(
