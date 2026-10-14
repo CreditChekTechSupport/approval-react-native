@@ -1,6 +1,6 @@
 {
   "name": "approval_react_native",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Approval SDK for React Native and Expo: identity, liveness, credit, income and recova in a few lines of code",
   "main": "build/index.js",
   "types": "build/index.d.ts",
